@@ -1,0 +1,16 @@
+Description: Using sphinx_qt_documentation fails when internet is not available, due to missing pyside6
+Author: Gianfranco Costamagna <locutusofborg@debian.org>
+Last-Update: 2024-11-02
+
+Index: python-pyqtgraph/doc/source/conf.py
+===================================================================
+--- python-pyqtgraph.orig/doc/source/conf.py
++++ python-pyqtgraph/doc/source/conf.py
+@@ -37,7 +37,6 @@
+     "sphinx.ext.viewcode",
+     "sphinx.ext.napoleon",
+     "sphinx.ext.intersphinx",
+-    "sphinx_qt_documentation",
+     "sphinx_design",
+     "sphinx_favicon",
+     "sphinxext.rediraffe",

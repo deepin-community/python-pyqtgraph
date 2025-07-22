@@ -1,5 +1,345 @@
-template-repository (1.0-1) unstable; urgency=medium
+python-pyqtgraph (0.13.7-5) unstable; urgency=medium
 
-  * Initial release
+  * Team upload.
+  * Add patch to use local intersphinx files
+  * Use new pydata-sphinx-theme
+  * Bump std-version to 4.7.0
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 15 Oct 2024 10:04:14 +0200
+
+python-pyqtgraph (0.13.7-4) unstable; urgency=medium
+
+  * Revert "Limit pyside6 to archs where it is supported"
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 06 Aug 2024 12:18:16 +0200
+
+python-pyqtgraph (0.13.7-3) unstable; urgency=medium
+
+  * Limit pyside6 to archs where it is supported
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 06 Aug 2024 10:13:35 +0200
+
+python-pyqtgraph (0.13.7-2) unstable; urgency=medium
+
+  * Add pyside6 to build
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 05 Aug 2024 09:32:34 +0200
+
+python-pyqtgraph (0.13.7-1) unstable; urgency=medium
+
+  * New upstream version 0.13.7
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 02 May 2024 08:21:15 +0200
+
+python-pyqtgraph (0.13.6-2) unstable; urgency=medium
+
+  * Readd hack to fix build
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 23 Apr 2024 15:55:13 +0200
+
+python-pyqtgraph (0.13.6-1) unstable; urgency=medium
+
+  * New upstream version 0.13.6
+  * Drop hack now that sphinx-theme-builder is updated
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 23 Apr 2024 08:35:23 +0200
+
+python-pyqtgraph (0.13.4-2) unstable; urgency=medium
+
+  * Add pybuild autopkgtest (Closes: #1035217)
+    - note: the tests are currently disabled because they spawn graphical
+      windows, but at least we can check buildability.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sun, 10 Mar 2024 07:50:01 +0100
+
+python-pyqtgraph (0.13.4-1) unstable; urgency=medium
+
+  * New upstream version 0.13.4
+  * Bump std-version to 4.6.2, no changes required
+  * Refresh patch
+  * Add new dependency for sphinx doc
+  * Update copyright file
+  * Update my copyright year
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 09 Mar 2024 11:59:33 +0100
+
+python-pyqtgraph (0.13.3-1) unstable; urgency=medium
+
+  * New upstream version 0.13.3
+  * Also depend on favicon
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 17 Apr 2023 14:37:27 +0200
+
+python-pyqtgraph (0.13.2-1) unstable; urgency=medium
+
+  * New upstream version 0.13.2
+    - disable theme-switcher, needing a newer pydata-sphinx-theme version
+  * Add dependencies on python3-sphinx-design, python3-sphinxcontrib.images,
+    python3-sphinxext-rediraffe and python3-pydata-sphinx-theme
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 10 Mar 2023 13:16:56 +0100
+
+python-pyqtgraph (0.13.1-4) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + python-pyqtgraph-doc: Add Multi-Arch: foreign.
+
+  [ Gianfranco Costamagna ]
+  * Add patch to fix build documentation when internet is not available
+  * Upload to sid
+  * Update copyright years
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 04 Feb 2023 13:05:55 +0100
+
+python-pyqtgraph (0.13.1-3) unstable; urgency=medium
+
+  * Update copyright file to specify no copyright holder for maps files
+  * Bump watch file to version 4
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 03 Oct 2022 20:31:14 +0200
+
+python-pyqtgraph (0.13.1-2) unstable; urgency=medium
+
+  * debian/patches/2459.patch:
+    - add upstream-proposed patch to fix build failure.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 03 Oct 2022 20:27:43 +0200
+
+python-pyqtgraph (0.13.1-1) unstable; urgency=medium
+
+  * Upload to sid
+  * New upstream version 0.13.1
+  * Add new dependency on python3-sphinx-qt-documentation
+    to build documentation for new qt6 binding
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 30 Sep 2022 12:40:15 +0200
+
+python-pyqtgraph (0.12.4-2) experimental; urgency=medium
+
+  * Also depend on qt6 packages
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 20 Jun 2022 16:23:02 +0200
+
+python-pyqtgraph (0.12.4-1) unstable; urgency=medium
+
+  * New upstream version 0.12.4
+  * Update for qt6, but leave it commented out
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Tue, 08 Mar 2022 22:46:52 +0100
+
+python-pyqtgraph (0.12.3-1) unstable; urgency=medium
+
+  * New upstream version 0.12.3
+  * Bump std-version to 4.6.0
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 18 Oct 2021 15:45:27 +0200
+
+python-pyqtgraph (0.12.2-1) unstable; urgency=medium
+
+  * New upstream version 0.12.2
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sun, 18 Jul 2021 11:10:46 +0200
+
+python-pyqtgraph (0.12.1-1) unstable; urgency=medium
+
+  * New upstream version 0.12.1
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 08 Apr 2021 18:47:58 +0200
+
+python-pyqtgraph (0.12.0-1) unstable; urgency=medium
+
+  * New upstream version 0.12.0
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 27 Mar 2021 10:49:17 +0100
+
+python-pyqtgraph (0.11.1-1) unstable; urgency=medium
+
+  * New upstream version 0.11.1
+  * Drop patches: upstream
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 24 Dec 2020 19:20:14 +0100
+
+python-pyqtgraph (0.11.0-7) unstable; urgency=medium
+
+  [ Chris Lamb <lamby@debian.org> ]
+  * debian/patches/1265.patch:
+    make build reproducible. (Closes: #963124)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 26 Sep 2020 11:34:23 +0200
+
+python-pyqtgraph (0.11.0-6) unstable; urgency=medium
+
+  * Add patch to make it compatible with the new pyqt5 sip implementation
+  * Update copyright years and URI
+  * Switch compat level to 13
+  * debian/patches/1331.patch:
+    - switch to new PyQt5 sip import API.
+      (Closes: #966045)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 27 Jul 2020 14:39:51 +0200
+
+python-pyqtgraph (0.11.0-5) unstable; urgency=medium
+
+  * New pyside in unstable, drop the conditional dependency
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sat, 27 Jun 2020 00:14:36 +0200
+
+python-pyqtgraph (0.11.0-4) unstable; urgency=medium
+
+  * New pyside not yet in unstable, add the dependency conditionally
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 12 Jun 2020 21:33:29 +0200
+
+python-pyqtgraph (0.11.0-3) unstable; urgency=medium
+
+  * Add some more dependencies, for new pyside dropping uic/rcc
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 11 Jun 2020 10:09:16 +0200
+
+python-pyqtgraph (0.11.0-2) unstable; urgency=medium
+
+  * Add some additional build dependencies to fix the build.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 10 Jun 2020 23:00:23 +0200
+
+python-pyqtgraph (0.11.0-1) unstable; urgency=medium
+
+  * New upstream version 0.11.0
+  * Update maintainers field
+  * add R^3: no
+  * bump std-version to 4.5.0
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 10 Jun 2020 22:17:59 +0200
+
+python-pyqtgraph (0.11.0~rc0-1) unstable; urgency=medium
+
+  * New upstream version 0.11.0~rc0
+    - try to drop the setup.py patch
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Sun, 22 Dec 2019 12:16:58 +0100
+
+python-pyqtgraph (0.10.0-5) unstable; urgency=medium
+
+  [ Georges Khaznadar ]
+  * For some mysterious reason, the expressions used to build the list of
+    python files to package misses the last directory in the list; when I
+    call *the same* expressions in a Python shell, it does not fail. So I
+    made a quick & &dirty fix: I hardcoded the list of files to package,
+    which closes: #939571
+
+  [ Gianfranco Costamagna ]
+  * Bump std-version to 4.1.1
+
+ -- Georges Khaznadar <georgesk@debian.org>  Tue, 05 Nov 2019 19:04:32 +0100
+
+python-pyqtgraph (0.10.0-4) unstable; urgency=medium
+
+  * debian/patches/fd11e1352d9e0b15d67520354bbbf40c615bf996.patch:
+    - update sources to upstream fd11e1352d9e0b15d67520354bbbf40c615bf996
+      commit on devel branch (Closes: #935784)
+    - this permits the switch to pyside2
+  * Previous upload dropped Python2 package (Closes: #938088)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 26 Aug 2019 11:44:55 +0200
+
+python-pyqtgraph (0.10.0-3) unstable; urgency=medium
+
+  * Drop python2 package
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 21 Aug 2019 18:27:17 +0200
+
+python-pyqtgraph (0.10.0-2) unstable; urgency=medium
+
+  [ Yuri D'Elia, Georges Khaznadar, jithin bp ]
+  * Add QT5 as alternative runtime binding (Closes: #843897)
+
+  [ Gianfranco Costamagna ]
+  * Bump std-version to 4.4.0, compat level to 12
+  * Update VCS fields for salsa.d.o move
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 21 Aug 2019 18:23:57 +0200
+
+python-pyqtgraph (0.10.0-1) unstable; urgency=medium
+
+  * New upstream release, update copyright file
+  * Bump std-version to 3.9.8
+  * Bump compat level to 10
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 09 Nov 2016 14:55:01 +0100
+
+python-pyqtgraph (0.9.10-5) unstable; urgency=medium
+
+  * Prefer qt4 over pyside to avoid drag of too much dependencies on binwalk.
+    (Closes: #810140)
+    - thanks a lot Julian Andres Klode <jak@debian.org> for the useful hint!
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 07 Jan 2016 00:09:38 +0100
+
+python-pyqtgraph (0.9.10-4) unstable; urgency=medium
+
+  * Disable testsuite, it drags too much dependencies, and
+    it fails for some new python3.5 modules. (Closes: #801207)
+    - https://github.com/pyqtgraph/pyqtgraph/issues/230
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Thu, 20 Aug 2015 23:29:20 +0200
+
+python-pyqtgraph (0.9.10-3) unstable; urgency=medium
+
+  * Remove numpy as runtime dependency, already
+    taken care in setup.py.
+  * Update my email address.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Wed, 22 Jul 2015 14:22:11 +0200
+
+python-pyqtgraph (0.9.10-2) unstable; urgency=medium
+
+  * Upload to unstable.
+    - Update copyright year.
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Sun, 26 Apr 2015 23:47:30 +0200
+
+python-pyqtgraph (0.9.10-1) experimental; urgency=medium
+
+  * New upstream release.
+    - d/copyright: drop PIL license, the code has been removed upstream.
+    - change author mail address.
+  * d/control
+    - Bump std-version to 3.9.6, no changes required.
+    - Add some build dependencies, to avoid build exceptions:
+      - python-matplotlib,
+      - python-numpy,
+      - python-opengl,
+      - python-qt4-gl,
+      - python-scipy
+    - Add the optional python*-matplotlib to Recommends.
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Thu, 25 Dec 2014 22:33:49 +0100
+
+python-pyqtgraph (0.9.8-3) unstable; urgency=medium
+
+  * Add X-Python-Version: to control file.
+  * Revert back to python-pyside | python-qt4, instead of requesting
+    them both. (Closes: #757645)
+  * Add a new -doc package.
+  * Add a new python3-pyqtgraph python3 compatible package.
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Fri, 15 Aug 2014 12:05:48 +0200
+
+python-pyqtgraph (0.9.8-2) unstable; urgency=medium
+
+  * Add some requied runtime dependencies
+    (mostly taken from binwalk documentation).
+  * Refactor debian/copyright
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Fri, 01 Aug 2014 15:18:08 +0200
+
+python-pyqtgraph (0.9.8-1) unstable; urgency=low
+
+  [ Gianfranco Costamagna ]
+  * Tweak the upstream debian packaging to fit with
+    python new rules.
+
+  [ Luke ]
+  * Initial release. (Closes: #753590)
+
+ -- Gianfranco Costamagna <costamagnagianfranco@yahoo.it>  Mon, 30 Jun 2014 15:52:52 +0200

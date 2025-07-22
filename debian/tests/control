@@ -1,0 +1,3 @@
+Test-Command: true
+Depends: @, @builddeps@
+Restrictions: build-needed
