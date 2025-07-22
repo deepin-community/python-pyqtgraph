@@ -1,0 +1,26 @@
+From: Gianfranco Costamagna <locutusofborg@debian.org>
+Description: cherry-pick and adapt patch from sphinx 7.4.7-3
+
+From: Dmitry Shachnev <mitya57@debian.org>
+Date: Tue, 2 Jun 2020 12:22:52 +0300
+Subject: Use local intersphinx inventory
+
+To prevent Sphinx from downloading https://docs.python.org/3/objects.inv
+during build.
+
+
+diff --git a/doc/source/conf.py b/doc/source/conf.py
+index 6d3597d..f82c6be 100644
+--- a/doc/source/conf.py
++++ b/doc/source/conf.py
+@@ -55,8 +55,8 @@ source_suffix = '.rst'
+ qt_documentation = "Qt6"
+ 
+ intersphinx_mapping = {
+-    'python': ('https://docs.python.org/3', None),
+-    'numpy': ('https://numpy.org/doc/stable/', None)
++    'python': ('/usr/share/doc/python3-doc/html', None),
++    'numpy': ('/usr/share/doc/python-numpy/html', None)
+ }
+ 
+ nitpick_ignore_regex = [
