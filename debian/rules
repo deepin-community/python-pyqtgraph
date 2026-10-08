@@ -1,4 +1,35 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/architecture.mk
+
+export PYBUILD_NAME=pyqtgraph
+
+
+# run tests in xvfb with suitable options
+export PYOPENGL_PLATFORM = glx
+export QT_QPA_PLATFORM = xcb
+
+# CRUFT FOR QT5:
+#  PyOpenGL may fail to find a suitable GL backend, particularly if
+#  PYOPENGL_PLATFORM has been set to glx as above to force other tests to
+#  run successfully in the xvfb.
+#  Conditionally setting PYOPENGL_PLATFORM_PYQT5 has the (patched) test
+#  harness set PYOPENGL_PLATFORM just for this Qt implementation.
+ifneq (,$(filter $(DEB_HOST_ARCH), armhf))
+  export PYOPENGL_PLATFORM_PYQT5 = egl
+endif
+
+XVFB_OPTS = --server-args="-screen 0, 1920x1200x24 -ac +extension GLX +render -noreset"
+
+export PYBUILD_TEST_CUSTOM = 1
+export PYBUILD_TEST_ARGS = xvfb-run $(XVFB_OPTS) python{version} -m pytest -v -n auto --pyargs tests pyqtgraph.examples
+
 %:
-	dh $@
+	dh $@ --with sphinxdoc --buildsystem=pybuild
+
+
+execute_before_dh_auto_clean:
+	rm -rf doc/build
+
+execute_before_dh_auto_build:
+	cd doc && $(MAKE) html

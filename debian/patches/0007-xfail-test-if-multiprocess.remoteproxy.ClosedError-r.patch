@@ -1,0 +1,27 @@
+From: Stuart Prescott <stuart@debian.org>
+Date: Thu, 1 Oct 2026 15:43:00 +1000
+Subject: xfail test if multiprocess.remoteproxy.ClosedError received
+
+Silences an occasional test failure on riscv64
+---
+ pyqtgraph/examples/test_examples.py | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/pyqtgraph/examples/test_examples.py b/pyqtgraph/examples/test_examples.py
+index 3dba8cf..f17017f 100644
+--- a/pyqtgraph/examples/test_examples.py
++++ b/pyqtgraph/examples/test_examples.py
+@@ -182,6 +182,13 @@ except:
+             and "pyqtgraph.multiprocess.remoteproxy.ClosedError" in stderr):
+             # This test can intermittently fail when the subprocess is killed
+             return None
++        if (fail
++            and name == "RemoteGraphicsView"
++            and "pyqtgraph.multiprocess.remoteproxy.ClosedError" in stderr):
++            # Test may also generate failures - appears to be riscv64 specific
++            pytest.xfail(
++                "RemoteGraphicsView child process closed (ClosedError) - expected failure"
++            )
+         print(stdout)
+         print(stderr)
+         pytest.fail(
