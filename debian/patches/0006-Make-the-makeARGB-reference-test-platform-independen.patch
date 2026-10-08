@@ -1,0 +1,36 @@
+From: Stuart Prescott <stuart@debian.org>
+Date: Wed, 30 Sep 2026 15:30:00 +1000
+Subject: Make the makeARGB reference test platform independent
+
+Fix tests on riscv64 that fail due to NaN casting assumptions.
+
+From upstream commit 41993a1dc1 "Make makeARGB reference test platform
+independent"
+https://github.com/pyqtgraph/pyqtgraph/pull/3540
+---
+ tests/test_makeARGB.py | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/tests/test_makeARGB.py b/tests/test_makeARGB.py
+index a5c7ef1..2dcc71d 100644
+--- a/tests/test_makeARGB.py
++++ b/tests/test_makeARGB.py
+@@ -59,9 +59,15 @@ def test_makeARGB_against_generated_references(acceleration, dtype, in_fmt, leve
+         assert exc_info.type is expectation, f"makeARGB({key!r}) was supposed to raise {expectation}"
+     else:
+         output, alpha = _makeARGB(data, lut=lut, levels=levels, scale=scale, useRGBA=use_rgba)
+-        assert (
+-            output == expectation
+-        ).all(), f"Incorrect _makeARGB({key!r}) output! Expected:\n{expectation!r}\n  Got:\n{output!r}"
++        matches = output == expectation
++        if data.dtype.kind == 'f':
++            nan_mask = np.isnan(data)
++            if data.ndim == 3:
++                nan_mask = np.any(nan_mask, axis=-1)
++            # NaN-to-integer conversion varies by platform. Only the alpha
++            # value of a NaN-containing pixel is defined by makeARGB.
++            matches[nan_mask, :3] = True
++        assert matches.all(), f"Incorrect _makeARGB({key!r}) output! Expected:\n{expectation!r}\n  Got:\n{output!r}"
+     setConfigOptions(useCupy=False, useNumba=False)
+ 
+ 

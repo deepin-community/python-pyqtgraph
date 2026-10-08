@@ -1,0 +1,7 @@
+0001-Prevent-Sphinx-from-downloading-intersphinx-indexes.patch
+0002-Remmove-sphinx_qt_documentation-to-prevent-internet-.patch
+0003-Add-.ui-files-to-module-data-to-install-into-module.patch
+0004-Qt-6.11-compatibility.patch
+0005-Add-Qt5-specific-GL-handling-for-tests.patch
+0006-Make-the-makeARGB-reference-test-platform-independen.patch
+0007-xfail-test-if-multiprocess.remoteproxy.ClosedError-r.patch

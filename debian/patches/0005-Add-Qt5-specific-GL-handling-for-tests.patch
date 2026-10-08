@@ -1,0 +1,28 @@
+From: Stuart Prescott <stuart@debian.org>
+Date: Wed, 30 Sep 2026 16:38:44 +1000
+Subject: Add Qt5-specific GL handling for tests
+
+---
+ pyqtgraph/examples/test_examples.py | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/pyqtgraph/examples/test_examples.py b/pyqtgraph/examples/test_examples.py
+index d5f68ba..3dba8cf 100644
+--- a/pyqtgraph/examples/test_examples.py
++++ b/pyqtgraph/examples/test_examples.py
+@@ -124,6 +124,15 @@ except:
+ 
+ """.format(import1, import2)
+     env = dict(os.environ)
++    # CRUFT for Qt5:
++    # Allow Qt frontend-specific GL setting via the PYOPENGL_PLATFORM env var
++    # PyOpenGL has some architecture-specific quirks for Qt5 and the right
++    # GL integration needs to be selected on some architectures; the selection
++    # is done via debian/rules setting PYOPENGL_PLATFORM_PYQT5
++    if frontend == Qt.PYQT5:
++        pyqt5_platform = os.environ.get("PYOPENGL_PLATFORM_PYQT5")
++        if pyqt5_platform:
++            env["PYOPENGL_PLATFORM"] = pyqt5_platform
+     example_dir = os.path.abspath(os.path.dirname(__file__))
+     path = os.path.dirname(os.path.dirname(example_dir))
+     env['PYTHONPATH'] = f'{path}{os.pathsep}{example_dir}'

@@ -1,0 +1,26 @@
+From: Debian Science Maintainers
+ <debian-science-maintainers@lists.alioth.debian.org>
+Date: Sun, 27 Sep 2026 17:53:22 +1000
+Subject: Add .ui files to module-data to install into module
+
+Without this, the .ui files for the examples were not installed, meaning
+that the tests in examples could not be run.
+
+(Note that changing to pyproject.toml for building may obsolete this)
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 88f79ff..2751041 100644
+--- a/setup.py
++++ b/setup.py
+@@ -108,7 +108,7 @@ setup(
+     python_requires=">=3.10",
+     package_dir={"pyqtgraph": "pyqtgraph"},
+     package_data={
+-        'pyqtgraph.examples': ['optics/*.gz', 'relativity/presets/*.cfg'],
++        'pyqtgraph.examples': ['*.ui', 'optics/*.gz', 'relativity/presets/*.cfg'],
+         "pyqtgraph.icons": ["**/*.svg", "**/*.png"],
+         "pyqtgraph": [
+             "colors/maps/*.csv",
